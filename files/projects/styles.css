@@ -1,0 +1,80 @@
+body {
+	background-color: purple;
+	background: url('images/swirly.png');
+	background-repeat: no-repeat;
+	background-size: 1920px 1080px;
+}
+
+
+.header {
+	width: 90%;
+	height: 150px;
+	padding-right: 90px;
+	margin: 20px auto;
+	border: 30px solid;
+	border-color: indigo;
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(93,73,111,0.8995973389355743) 48%, rgba(66,0,125,0) 97%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header p {
+	font-size: 50px;
+	color: white;
+	font-style: italic;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#nav {
+	width: 96.8%;
+	height: 70px;
+	margin: 20px auto;
+	border: 10px solid;
+	border-color: indigo;
+	
+	font-family: italic;
+	color: white;
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(93,73,111,0.8995973389355743) 48%, rgba(66,0,125,0) 97%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#nav a{
+	color: white;
+	font-size: 40px;
+	text-decoration: none;
+}
+
+.main {
+	width: 96.8%;
+	height: 450px;
+	margin: 20px auto;
+	border: 10px solid;
+	border-color: indigo;
+	font-size: 60px;
+	font-family: italic;
+	color: white;
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(93,73,111,0.8995973389355743) 48%, rgba(66,0,125,0) 97%);
+	text-align: justify;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer {
+	width: 96.8%;
+	height: 50px;
+	margin: 20px auto;
+	border: 10px solid;
+	border-color: indigo;
+	font-family: italic;
+	color: white;
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(93,73,111,0.8995973389355743) 48%, rgba(66,0,125,0) 97%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

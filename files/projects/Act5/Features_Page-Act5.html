@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+    <title>
+        CashGuard - Smart Budgeting App
+    </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="styles.css">
+    <!-- Preload the logo image -->
+    <link rel="preload" href="image/cashguard_logo.png" as="image">
+</head>
+    
+<body>
+
+    <header class="header">
+        <h1>
+            CashGuard
+        </h1>
+
+        <p>
+            Your Smart Financial Guardian
+        </p>
+    </header>
+        
+    <nav class="navbar">
+        <a href="Act5.html">Home</a>
+        <a href="Features_Page-Act5.html">Features</a>
+        <a href="AboutUs_Page-Act5.html">About Us</a>
+        <a href="ContactUs_Page-Act5.html">Contact Us</a>
+        <a href="Act6.html" id="logout">Log out</a>
+    </nav>
+        
+    <div class="row">
+        <aside class="side_features">
+            <h2>Features Navigation</h2>
+            <ul>
+                <li><a href="#expense-tracking">Expense Tracking</a></li>
+                <li><a href="#offline-functionality">Offline Functionality</a></li>
+                <li><a href="#data-security">Data Security</a></li>
+                <li><a href="#savings-goals">Savings Goals</a></li>
+                <li><a href="#financial-tips">Financial Tips</a></li>
+                <li><a href="#user-engagement">User Engagement</a></li>
+            </ul>
+            <!-- <div class="content-img">
+                <img src="image/cashguard_logo.png" alt="CashGuard Logo" loading="lazy">
+            </div> -->
+            <p>
+                Discover the robust features that make CashGuard your ultimate financial guardian.
+            </p>
+        </aside>
+        
+        <main class="main">
+            <article>
+                <h2>Features of CashGuard</h2>
+                <h5>Enhance your financial management with our smart features.</h5>
+                <br>
+                <br>
+                <section id="expense-tracking">
+                    <h2>Expense Tracking</h2>
+                    <div class="content-img">
+                        <img src="image/Expense-Tracking.gif" alt="Expense Tracking" loading="lazy">
+                    </div>
+                    <p>
+                        Track every expense effortlessly. CashGuard allows you to record transactions automatically, categorize them into custom groups, and monitor spending trends to help you stay within budget.
+                    </p>
+                </section>
+                <br>
+                <br>
+                <section id="offline-functionality">
+                    <h2>Offline Functionality</h2>
+                    <div class="content-img">
+                        <img src="image/Offline-Functionality.gif" alt="Offline Functionality" loading="lazy">
+                    </div>
+                    <p>
+                        Access your financial data anytime, anywhere. With offline capabilities, you can update your transactions and review past records even without an internet connection.
+                    </p>
+                </section>
+                <br>
+                <br>
+                <section id="data-security">
+                    <h2>Data Security</h2>
+                    <div class="content-img">
+                        <img src="image/Data-Security.gif" alt="Data Security" loading="lazy">
+                    </div>
+                    <p>
+                        Your data is our top priority. CashGuard uses robust encryption and security protocols to ensure that your personal and financial information remains safe and private.
+                    </p>
+                </section>
+                <br>
+                <br>
+                <section id="savings-goals">
+                    <h2>Savings Goals</h2>
+                    <div class="content-img">
+                        <img src="image/Savings-Goals.gif" alt="Savings Goals" loading="lazy">
+                    </div>
+                    <p>
+                        Set clear savings goals and track your progress. Whether you're saving for a large purchase or building an emergency fund, our app helps you set targets and monitor your achievements over time.
+                    </p>
+                </section>
+                <br>
+                <br>
+                <section id="financial-tips">
+                    <h2>Financial Tips & Education</h2>
+                    <div class="content-img">
+                        <img src="image/Financial-Tips.gif" alt="Financial Tips" loading="lazy">
+                    </div>
+                    <p>
+                        Improve your financial literacy with tailored advice and actionable tips. CashGuard offers personalized suggestions based on your spending habits, helping you make smarter decisions.
+                    </p>
+                </section>
+                <br>
+                <br>
+                <section id="user-engagement">
+                    <h2>User Engagement & Notifications</h2>
+                    <div class="content-img">
+                        <img src="image/User-Engagement.gif" alt="User Engagement" loading="lazy">
+                    </div>
+                    <p>
+                        Stay informed with timely notifications and alerts. Receive real-time updates on your spending, budget limits, and financial milestones, ensuring you always have a handle on your money.
+                    </p>
+                </section>
+                    
+                <p>
+                    CashGuard integrates these features into a cohesive, intuitive platform that empowers you to manage your finances with confidence and ease.
+                </p>
+            </article>
+        </main>
+    </div>
+        
+    <footer class="footer">
+        <h2>©2025 CashGuard. All Rights Reserved.</h2>
+    </footer>
+
+    <script>
+        // When the user scrolls down 50px from the top, adjust the header's font size
+        window.onscroll = function() { scrollFunction(); };
+
+        function scrollFunction() {
+            const header = document.querySelector(".header");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 30) {
+                header.style.fontSize = "20px";
+            } else {
+                header.style.fontSize = "30px";
+            }
+        }
+    </script>
+
+</body>
+ 
+</html>

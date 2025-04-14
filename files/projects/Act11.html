@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity 11</title>
+</head>
+<body>
+    
+    <div class="outerdiv">
+<!-- ////////////////// -->
+        <div class="innerdiv">
+            <h2>FOR LOOP</h2>
+            <form action="Activity11.html" class="loopsForm">
+                <label for="num1">Enter number:</label>
+                <input type="number" id="num1" name="num1">
+
+                <label for="txt1">Enter text:</label>
+                <input type="text" id="text1" name="text1">             
+            </form>
+
+            <div class="buttondiv">
+                <button type="button"
+                        onclick="forLoop()">
+                    Show
+                </button>
+
+                <button type="button"
+                        onclick="clearfor()">
+                    Clear
+                </button>
+            </div>
+            
+        </div>
+<!-- /////////////////// -->
+        <div class="innerdiv">
+            <h2>WHILE LOOP</h2>
+
+            <form action="Activity11.html" class="loopsForm">
+                <label for="num2">Enter number:</label>
+                <input type="number" id="num2" name="num2">
+
+                <label for="txt2">Enter text:</label>
+                <input type="text" id="text2" name="text2">             
+            </form>
+
+            <div class="buttondiv">
+                <button type="button"
+                        onclick="whileLoop()">
+                    Show
+                </button>
+
+                <button type="button"
+                        onclick="clearwhile()">
+                    Clear
+                </button>
+            </div>
+
+            
+
+        </div>
+<!-- /////////////// -->
+        <div class="innerdiv">
+            <h2>DO-WHILE LOOP</h2>
+
+            <form action="Activity11.html" class="loopsForm">
+                <label for="num3">Enter number:</label>
+                <input type="number" id="num3" name="num3">
+
+                <label for="txt3">Enter text:</label>
+                <input type="text" id="text3" name="text3">             
+            </form>
+
+            <div class="buttondiv">
+                <button type="button"
+                        onclick="dowhileLoop()">
+                    Show
+                </button>
+
+                <button type="button"
+                        onclick="cleardowhile()">
+                    Clear
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="pdiv">
+            <p id="printfor"></p>
+        </div>
+
+        <div class="pdiv">
+            <p id="printwhile"></p>
+        </div>
+
+        <div class="pdiv">
+            <p id="printdowhile"></p>
+        </div>
+        
+
+    </div>
+
+    <script>
+        function forLoop () {
+            const num1 = parseFloat (document.getElementById('num1').value);
+            const text1 = document.getElementById('text1').value;
+            let result = '';
+
+            if ( isNaN(num1) || text1.trim() === '' ) {
+                alert('Fields must not be empty!');
+                return;
+            }
+
+            for ( let i = 0; i < num1; i++) {
+                result += text1 + '<br>';
+            }
+            document.getElementById('printfor').innerHTML = result;
+            console.log(result);
+        }
+
+        function clearfor () {
+            document.getElementById('printfor').innerHTML = '';
+            document.getElementById('num1').value = '';
+            document.getElementById('text1').value = '';
+        }
+
+        function whileLoop () {
+            const num2 = parseFloat (document.getElementById('num2').value);
+            const text2 = document.getElementById('text2').value;
+            let result = '';
+
+            if ( isNaN(num2) || text2.trim() === '' ) {
+                alert('Fields must not be empty!');
+                return;
+            }
+
+            let i = 0
+            while ( i < num2 ) {
+                result += text2 + '<br>';
+                i++
+            }
+            document.getElementById('printwhile').innerHTML = result;
+        }
+
+        function clearwhile () {
+            document.getElementById('printwhile').innerHTML = '';
+        }
+
+        function dowhileLoop () {
+            const num3 = parseFloat (document.getElementById('num3').value);
+            const text3 = document.getElementById('text3').value;
+            let result = '';
+
+            if ( isNaN(num3) || text3.trim() === '' ) {
+                alert('Fields must not be empty!');
+                return;
+            }
+
+            let i = 0
+            do {
+                result += text3 + '<br>';
+                i++
+            } while ( i < num3 );
+            document.getElementById('printdowhile').innerHTML = result;
+        }
+
+        function cleardowhile () {
+            document.getElementById('printdowhile').innerHTML = '';
+
+        }
+
+    </script>
+</body>
+</html>
+
+<style>
+
+
+.outerdiv {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1px;
+}
+
+.innerdiv {
+    height: auto;
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color:gray;
+    margin-bottom: 1px;
+}
+
+.buttondiv {
+    display: flex;
+    justify-content: center; /* This centers the buttons horizontally */
+    gap: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pdiv {
+    height:1000px;
+    border-style:solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color:gray;
+}
+
+p {
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+label,
+input {
+  display: inline-block;
+}
+
+label {
+  width: 30%;
+  text-align: right;
+}
+
+label+input {
+  width: 30%;
+  margin: 0 30% 0 4%;
+}
+
+</style>

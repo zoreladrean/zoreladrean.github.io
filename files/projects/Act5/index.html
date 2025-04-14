@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CashGuard - Smart Budgeting App</title>
+  <style>
+    /* Global Reset and Base Styles */
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      line-height: 1.5;
+      background: linear-gradient(90deg, rgba(207,237,238,1) 17%, rgba(232,252,255,1) 50%);
+    }
+    /* Header */
+    .header {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(133,255,166,1) 0%, rgba(8,124,56,0.5) 50%, rgba(207,233,238,1) 100%);
+      color: white;
+      font-weight: bold;
+      text-shadow: 0.5px 0.5px 5px #032311;
+      transition: background 1s;
+      transition: 0.5s;
+    }
+    .header:hover {
+      background: linear-gradient(90deg, rgba(133,255,166,1) 0%, rgba(8,124,56,1) 50%, rgba(207,233,238,1) 100%);
+      color: #064420;
+      text-shadow: 0.5px 0.5px 10px #ffffff;
+      transform: scale(1.05);
+    }
+    /* Layout Container */
+    .layout-container {
+      display: flex;
+      min-height: calc(100vh - 160px); /* Adjust based on header/footer height */
+    }
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 250px;
+      background: radial-gradient(90deg, rgba(133,255,166,1) 0%, rgba(8,124,56,0.5) 50%, rgba(207,233,238,1) 100%);
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar li { margin-bottom: 10px; }
+    .sidebar a {
+      color: #40566c;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .sidebar a:hover {
+      background: #40566c;
+      color: white;
+      transition: 0.5s;
+    }
+ 
+    .sidebar a:active {
+        transform: scale(1.05);
+    }
+    /* Main Content Area */
+    main.container {
+      flex: 1;
+      margin: 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    /* Page Sections */
+    section.page { display: none; }
+    section.page.active { display: block; }
+    /* Footer */
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(133,238,255,1) 0%, rgba(2,165,185,1) 50%, rgba(207,237,238,1) 100%);
+      color: white;
+      text-shadow: 5px 5px 15px #40566c;
+      transition: background 1s;
+      transition: 0.5s;
+    }
+    .footer:hover {
+      background: linear-gradient(90deg, rgba(133,238,255,0.7) 0%, rgba(2,165,185,0.7) 50%, rgba(207,237,238,0.7) 100%);
+      color: #40566c;
+      text-shadow: 2px 2px 15px #ffffff;
+      transform: scale(1.05);
+    }
+    /* ----- Home Page Content ----- */
+    .content-img {
+      background-color: rgba(197,248,255,0.55);
+      max-width: 683px;
+      padding: 20px;
+      margin: 20px auto;
+      text-align: center;
+      box-shadow: 10px 10px 10px rgba(133,238,255,0.4);
+      border-radius: 38px;
+      transition: transform 0.5s;
+    }
+    .content-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 48px;
+      transition: transform 0.5s, box-shadow 0.5s;
+    }
+    .content-img img:hover {
+      transform: scale(1.02);
+      box-shadow: 7px 7px 7px rgba(226,226,226,1);
+    }
+    /* ----- Features Page Styles ----- */
+    section.features section { margin-bottom: 40px; }
+    section.features h2 { margin-bottom: 10px; }
+    /* ----- About Us Page Styles ----- */
+    .about-section {
+      padding: 20px;
+      text-align: center;
+      background: linear-gradient(90deg, rgba(207,237,238,0.7) 0%, rgba(2,165,185,0.7) 50%, rgba(207,237,238,0.7) 100%);
+      color: white;
+      text-shadow: 5px 5px 15px #40566c;
+      transition: background 1s;
+      margin-bottom: 40px;
+    }
+    .row2 { overflow: hidden; }
+    .column { float: left; width: 33.3%; padding: 0 8px; margin-bottom: 16px; }
+    .card { box-shadow: 0 4px 8px rgba(0,0,0,0.2); margin: 8px; }
+    .container-aboutUs { padding: 0 16px; text-align: center; }
+    .button { border: none; padding: 8px; background-color: #03a5ba; color: white; cursor: pointer; width: 100%; border-radius: 15px; transition: transform 1s; }
+    .button:hover { background-color: #4ecfe2; transform: scale(1.03); }
+    /* Ensure About Us images fit their boxes */
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    /* ----- Contact Us Page Styles ----- */
+    .container-contactUs {
+      border-radius: 5px;
+      background: linear-gradient(90deg, rgba(207,237,238,0.3) 0%, rgba(2,165,185,0.2) 50%, rgba(207,237,238,0.3) 100%);
+      padding: 10px;
+      color: #40566c;
+      margin-bottom: 40px;
+    }
+    .row:after { content: ""; display: table; clear: both; }
+    .column-contactUs { float: left; width: 50%; padding: 20px; }
+    input[type=text], select, textarea {
+      width: 100%; padding: 12px; border: 1px solid #ccc; margin: 6px 0 16px; resize: vertical;
+    }
+    input[type=submit] { background-color: #03a5ba; color: white; padding: 12px 20px; border: none; cursor: pointer; }
+    input[type=submit]:hover { background-color: #4ecfe2; }
+    /* ----- Login Page Styles ----- */
+    .login-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      margin: 20px auto;
+    }
+    .logo { text-align: center; margin-bottom: 20px; }
+    .logo img { max-width: 100px; border-radius: 19px; transition: transform 0.5s, box-shadow 0.5s; }
+    .logo img:hover { transform: scale(1.02); box-shadow: 7px 7px 7px rgba(133,238,255,0.8); }
+    .login-form { width: 100%; text-align: center; }
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #e4eaf0;
+      transition: background 1s;
+    }
+    .login-form input:hover { background-color: white; }
+    .buttons { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+    .buttons .button { flex: 1; max-width: 120px; }
+    /* Clear floats */
+    .clearfix::after { content: ""; clear: both; display: table; }
+    /* Responsive */
+    @media screen and (max-width: 700px) {
+      .column, .column-contactUs { width: 100%; }
+      .layout-container { flex-direction: column; }
+      .sidebar { width: 100%; height: auto; position: relative; }
+    }
+  </style>
+  <script>
+    function showSection(sectionId) {
+      var pages = document.querySelectorAll("section.page");
+      pages.forEach(function(page) {
+        page.classList.remove("active");
+      });
+      document.getElementById(sectionId).classList.add("active");
+      window.scrollTo(0,0);
+    }
+    // Set default page to "login"
+    window.onload = function() { showSection("login"); };
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <h1>CashGuard</h1>
+    <p>Your Smart Financial Guardian</p>
+  </header>
+ 
+  <!-- Layout Container: Sidebar & Main Content -->
+  <div class="layout-container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <ul>
+        <li><a href="#" onclick="showSection('home');">Home</a></li>
+        <li><a href="#" onclick="showSection('features');">Features</a></li>
+        <li><a href="#" onclick="showSection('about');">About Us</a></li>
+        <li><a href="#" onclick="showSection('contact');">Contact Us</a></li>
+        <li><a href="#" onclick="showSection('login');">Log Out</a></li>
+      </ul>
+    </nav>
+   
+    <!-- Main Content Area -->
+    <main class="container">
+      <!-- Home Section (from Act5.html) -->
+      <section id="home" class="page">
+        <article>
+          <h2>Welcome to CashGuard</h2>
+          <h5>Manage Your Finances Smarter, Every Day</h5>
+          <div class="content-img">
+            <img src="image/cashguard_logo.gif" alt="CashGuard App" loading="lazy">
+          </div>
+          <p>
+            CashGuard empowers you to take control of your financial future. Whether you’re a student or a young professional, our app is tailored to help you track expenses, set savings goals, and avoid overspending.
+          </p>
+          <div class="content-img">
+            <img src="image/cashguard_white.gif" alt="CashGuard App" loading="lazy">
+          </div>
+        </article>
+      </section>
+     
+      <!-- Features Section (from Features_Page-Act5.html) -->
+      <section id="features" class="page features">
+        <article>
+          <h2>Features of CashGuard</h2>
+          <h5>Enhance your financial management with our smart features.</h5>
+          <section id="expense-tracking">
+            <h2>Expense Tracking</h2>
+            <div class="content-img">
+              <img src="image/Expense-Tracking.gif" alt="Expense Tracking" loading="lazy">
+            </div>
+            <p>
+              Track every expense effortlessly. CashGuard allows you to record transactions automatically, categorize them into custom groups, and monitor spending trends to help you stay within budget.
+            </p>
+          </section>
+          <section id="offline-functionality">
+            <h2>Offline Functionality</h2>
+            <div class="content-img">
+              <img src="image/Offline-Functionality.gif" alt="Offline Functionality" loading="lazy">
+            </div>
+            <p>
+              Access your financial data anytime, anywhere. With offline capabilities, you can update your transactions and review past records even without an internet connection.
+            </p>
+          </section>
+          <section id="data-security">
+            <h2>Data Security</h2>
+            <div class="content-img">
+              <img src="image/Data-Security.gif" alt="Data Security" loading="lazy">
+            </div>
+            <p>
+              Your data is our top priority. CashGuard uses robust encryption and security protocols to ensure that your personal and financial information remains safe and private.
+            </p>
+          </section>
+          <section id="savings-goals">
+            <h2>Savings Goals</h2>
+            <div class="content-img">
+              <img src="image/Savings-Goals.gif" alt="Savings Goals" loading="lazy">
+            </div>
+            <p>
+              Set clear savings goals and track your progress. Whether you're saving for a large purchase or building an emergency fund, our app helps you set targets and monitor your achievements over time.
+            </p>
+          </section>
+          <section id="financial-tips">
+            <h2>Financial Tips & Education</h2>
+            <div class="content-img">
+              <img src="image/Financial-Tips.gif" alt="Financial Tips" loading="lazy">
+            </div>
+            <p>
+              Improve your financial literacy with tailored advice and actionable tips. CashGuard offers personalized suggestions based on your spending habits, helping you make smarter decisions.
+            </p>
+          </section>
+          <section id="user-engagement">
+            <h2>User Engagement & Notifications</h2>
+            <div class="content-img">
+              <img src="image/User-Engagement.gif" alt="User Engagement" loading="lazy">
+            </div>
+            <p>
+              Stay informed with timely notifications and alerts. Receive real-time updates on your spending, budget limits, and financial milestones, ensuring you always have a handle on your money.
+            </p>
+          </section>
+          <p>
+            CashGuard integrates these features into a cohesive, intuitive platform that empowers you to manage your finances with confidence and ease.
+          </p>
+        </article>
+      </section>
+     
+      <!-- About Us Section (from AboutUs_Page-Act5.html) -->
+      <section id="about" class="page">
+        <div class="about-section">
+          <h1>About Us</h1>
+          <p>Some text about who we are and what we do.</p>
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae id fugiat, illo doloribus repellat minima cum libero! Inventore voluptate, amet doloribus pariatur consectetur fuga exercitationem, perspiciatis laborum, ducimus sapiente iste.
+          </p>
+        </div>
+        <div class="row2 clearfix">
+          <h2 style="text-align:center">Our Team</h2>
+          <div class="column">
+            <div class="card">
+              <img src="image/myphoto.png" alt="John Doe">
+              <div class="container-aboutUs">
+                <h2>Zorel Adrean R. Java</h2>
+                <p class="title">CEO &amp; Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>petrovamario@gmail.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <img src="image/mike.png" alt="Jane Doe">
+              <div class="container-aboutUs">
+                <h2>Mike Lebron S. Monterona</h2>
+                <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>jane@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="card">
+              <img src="image/sebyer.png" alt="Jane Doe">
+              <div class="container-aboutUs">
+                <h2>Xavier A. Fernandez</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>jane@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="column">
+            <div class="card">
+              <img src="image/anime4.gif" alt="Jane Doe">
+              <div class="container-aboutUs">
+                <h2>Jane Doe</h2>
+                <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>jane@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div> -->
+          <!-- <div class="column">
+            <div class="card">
+              <img src="image/anime5.gif" alt="John Doe">
+              <div class="container-aboutUs">
+                <h2>John Doe</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>john@example.com</p>
+                <p><button class="button">Contact</button></p>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+     
+      <!-- Contact Us Section (from ContactUs_Page-Act5.html) -->
+      <section id="contact" class="page">
+        <div class="container-contactUs">
+          <h2>Contact Us</h2>
+          <p>Swing by for a cup of coffee, or leave us a message:</p>
+          <div class="row clearfix">
+            <div class="column-contactUs">
+              <img src="image/contact_us.jpg" style="width:100%">
+            </div>
+            <div class="column-contactUs">
+              <form action="/action_page.php">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                <label for="country">Country</label>
+                <select id="country" name="country">
+                  <option value="australia">Australia</option>
+                  <option value="canada">Canada</option>
+                  <option value="usa">USA</option>
+                  <option value="ph">Philippines</option>
+                </select>
+                <label for="subject">Subject</label>
+                <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                <input type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <!-- Login Section (from Act6.html) -->
+      <section id="login" class="page active">
+        <div class="login-container">
+          <div class="logo">
+            <img src="image/cashguard_logoDraft2.png" alt="Logo">
+          </div>
+          <div class="login-form">
+            <form action="/action_page.php">
+              <label for="uname">Username:</label>
+              <input type="text" id="uname" name="username" placeholder="Enter Username">
+              <label for="pname">Password:</label>
+              <input type="password" id="pname" name="password" placeholder="Enter Password">
+            </form>
+            <div class="buttons">
+              <button class="button" onclick="showSection('home');" type="button">Login</button>
+              <button class="button">SignUp</button>
+            </div>
+            <p>Forgot Password?</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+ 
+  <!-- Footer -->
+  <footer class="footer">
+    <h2>&copy; Zorel Adrean R. Java | BSIT - 2</h2>
+  </footer>
+</body>
+</html>

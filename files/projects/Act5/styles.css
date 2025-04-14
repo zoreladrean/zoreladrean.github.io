@@ -1,0 +1,921 @@
+* {
+    box-sizing: border-box;
+}
+ 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.5;
+    /* padding-top: 70px; */
+}
+ 
+/* Header with a gradient from green to blue */
+.header {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(133,255,166,1) 0%, rgba(8,124,56,0.49343487394957986) 50%, rgba(207,233,238,1) 100%);
+    color: white;
+    line-height: 1.5;
+    transition: 1s;
+    color: 0.15s;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px 5px #032311;
+  
+}
+
+.header:hover{
+    background: linear-gradient(90deg, rgba(133,255,166,10) 0%, rgba(8,124,56,10.49343487394957986) 50%, rgba(207,233,238,10) 100%);
+    color: #064420;
+    text-shadow: 0.5px 0.5px 10px #ffffff;
+    
+    
+}
+ 
+/* Navbar with a deep blue background */
+.navbar {
+    display: flex;
+    background: linear-gradient(90deg, rgba(133,255,166,1) 0%, rgba(8,124,56,1) 50%, rgba(207,233,238,1) 100%);
+    justify-content: center;
+    font-weight: bold;
+    font-size: 28px;
+    text-shadow: 0.5px 0.5px 10px #032311;
+
+    position: sticky;
+    top: 0;
+    z-index: 1;
+
+    align-items: center;
+    /* padding: 10px 20px; */
+    /* position: relative; */
+    
+}
+
+.navbar:hover {
+    background: linear-gradient(90deg, rgba(133,255,166,1) 0%, rgba(8,124,56,0.49343487394957986) 50%, rgba(207,233,238,1) 100%);
+    color: black;
+    text-shadow: 2px 2px 5px #ffffff;
+
+    /* -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear; */
+
+    
+}
+ 
+.navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+    /* transition: background 1s, color 0.15s; */
+    transition: 1s;
+    color: 0.15s;
+    
+}
+ 
+.navbar a:hover {
+    background-color: #81cfac;
+    color: #064420;
+    /* transform-style: scale(1.02); */
+    font-size:50px;
+    transition: all 500ms;
+    font-size-adjust: 20px;
+    
+}
+
+.navbar a:active {
+    background-color: rgb(143, 237, 161);
+    cursor: wait;
+    color: white;
+}
+
+#logout {
+    background-color: #064420; /* Red background for emphasis */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Adjust padding */
+    font-weight: bold; /* Make text bold */
+    
+    position: absolute; /* Position it absolutely within the navbar */
+    right: 20px; /* Distance from the right edge */
+    top: 50%; /* Vertically center it */
+    transform: translateY(-50%);
+
+    transition: 0.3s;
+}
+
+#logout:hover {
+  background-color: #09632f; /* Darker red on hover */
+  border-radius: 25px;
+}
+ 
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row ul {
+  text-align: center;
+
+}
+
+.row a {
+  text-align: center;
+  --s: 0.1em;   /* the thickness of the line */
+  --c: #064420; /* the color */
+  /* color: #064420; */
+  color: #0000;
+  padding-bottom: var(--s);
+  background: 
+    linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+    linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+  -webkit-background-clip: text,padding-box;
+          background-clip: text,padding-box;
+  transition: 0.5s;
+
+  font-family: system-ui, sans-serif;
+  font-size: 2rem;
+  cursor: pointer;
+
+  
+}
+.row a:hover {--_p: 100%}
+
+ 
+/* Side section*/
+.side {
+    flex: 30%;
+    background: linear-gradient(90deg, rgba(207,237,238,1) 17%, rgba(232,252,255,1) 50%);
+    padding: 20px;
+    font-size: 18px;
+    transition: background-color 1000ms linear;
+}
+
+.side:hover {
+    background: #D4F6FF;
+}
+
+.side h2 {
+    text-align: center;
+    font-size: 38px;
+    color:#032311;
+    text-shadow: 2px 2px 3px #0a71375b;
+}
+
+.side h3 {
+    text-align: center;
+    font-size: 23px;
+    color:#032311;
+    text-shadow: 1px 1px 4px #0a71375b;
+    /* font-size: 38px; */
+}
+
+.side h5 {
+    text-align: center;
+    /* line-height: 24px; */
+    font-size: 23px;
+    color:#032311;
+    text-shadow: 1px 1px 4px #0a71375b;
+}
+
+.side_features {
+  flex: 30%;
+  background: linear-gradient(90deg, rgba(207,237,238,1) 17%, rgba(232,252,255,1) 50%);
+  padding: 20px;
+  font-size: 18px;
+  transition: background-color 1000ms linear;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh; /* Ensure the sidebar takes the full height of the viewport */
+  overflow-y: auto; /* Add scroll if content overflows */
+  align-items: start; /*to delete*/
+  padding-top: 100px;
+  
+}
+
+.side_features p {
+  line-height: 24px;
+  text-align: justify;
+  color: #032311;
+  text-shadow: 5px 5px 15px #0a71375b;
+  margin-bottom: 20px; /* Add margin to prevent text overlap */
+}
+
+.side_features h2 {
+  text-align: center;
+  font-size: 38px;
+  color: #032311;
+  text-shadow: 2px 2px 3px #0a71375b;
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 20px; /* Add margin to prevent text overlap */
+}
+
+.side_features h3 {
+  text-align: center;
+  font-size: 23px;
+  color: #032311;
+  text-shadow: 1px 1px 4px #0a71375b;
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 20px; /* Add margin to prevent text overlap */
+}
+
+.side_features h5 {
+  text-align: center;
+  font-size: 23px;
+  color: #032311;
+  text-shadow: 1px 1px 4px #0a71375b;
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 20px; /* Add margin to prevent text overlap */
+}
+
+.side_features ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.side_features ul li {
+  margin-bottom: 10px; /* Add margin to prevent text overlap */
+}
+
+.side_features:hover {
+  background: #D4F6FF;
+}
+ 
+/* Main content*/
+.main {
+    flex: 70%;
+    background: linear-gradient(90deg, rgba(207,237,238,1) 17%, rgba(232,252,255,1) 50%);
+    padding: 20px;
+    font-size: 18px;
+    transition: background-color 1000ms linear;
+}
+
+.main h2 {
+    text-align: center;
+    font-size: 38px;
+    color:#032311;
+    text-shadow: 2px 2px 3px #0a71375b;
+
+    padding-top: 80px;
+}
+
+.main h5 {
+    text-align: center;
+    font-size: 23px;
+    color:#032311;
+    text-shadow: 1px 1px 4px #0a71375b;
+}
+
+.main p {
+    text-align: left;
+    line-height: 24px;
+    color:#032311;
+    text-shadow: 5px 5px 15px #0a71375b;
+}
+
+.main:hover {
+    background: #D4F6FF;
+}
+ 
+
+/* Content image background updated to a light gray */
+.content-img {
+    background-color: rgba(197, 248, 255, 0.552);
+    /* width: 100%; */
+    max-width: 683px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 10px 10px 10px rgba(133,238,255,0.4);
+    border-radius: 38px;
+    transition: box-shadow: 0.15s;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+ 
+/* .content-img img {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+    display: block;
+} */
+
+/* .content-img {
+    background-color: #EEEEEE;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+} */
+
+.content-img img {
+    max-width: 640px;
+    height: auto;
+    display: inline-block;
+    max-height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px rgba(226, 226, 226, 0.7);
+    border-radius: 48px;
+    transition: 0.5s;
+    
+}
+
+.content-img img:hover {
+    box-shadow: 7px 7px 7px rgba(226, 226, 226, 1.2);
+    transform: scale(1.02);
+}
+
+/* @media screen and (max-width: 768px) {
+    .content-img img {
+        max-height: 300px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content-img img {
+        max-height: 200px;
+    }
+} */
+ 
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(133,238,255,1) 0%, rgba(2,165,185,1) 50%, rgba(207,237,238,1) 100%);
+    color: white;
+    transition: 1s;
+    text-shadow: 5px 5px 15px #40566c;
+    /* transition: background-color 1000ms linear; */
+
+
+}
+
+.footer:hover {
+    background: linear-gradient(90deg, rgba(133,238,255,0.7) 0%, rgba(2,165,185,0.7) 50%, rgba(207,237,238,0.7) 100%);
+    color: #40566c;
+    text-shadow: 2px 2px 15px #ffffff;
+    font-size:15px;
+    transition: all 500ms;
+    font-size-adjust: 20px;
+    /* transition: background-color 1000ms linear; */
+}
+ 
+
+/* main mobile view */
+/* @media screen and (max-width: 900px) {
+    .row, .navbar {
+        flex-direction: column;
+    }
+ 
+    .navbar a {
+        padding: 10px;
+    }
+
+    #logout {
+      border-radius: 5px;
+      margin-top: 40px;
+      position: static;
+    }
+} */
+
+@media screen and (max-width: 700px) {
+  /* Stack the navbar links vertically */
+  .navbar {
+      flex-direction: column; /* Stack links vertically */
+      align-items: stretch; /* Stretch links to full width */
+      text-align: center; /* Center text in each link */
+      padding: 10px 0; /* Adjust padding */
+      position: relative; /* Ensure proper positioning */
+  }
+
+  /* Style for all links in the navbar */
+  .navbar a {
+      padding: 10px; /* Add padding for better touch targets */
+      width: 100%; /* Full width for each link */
+      box-sizing: border-box; /* Include padding in width calculation */
+      font-size: 24px; /* Increase font size for better readability */
+  }
+
+  /* Position the "Log out" link at the bottom of the navbar */
+  #logout {
+      position: static; /* Reset absolute positioning */
+      margin-top: 40px; /* Add space above the logout link */
+      background-color: #064420; /* Green background for emphasis */
+      border-radius: 5px; /* Rounded corners */
+      font-weight: bold; /* Make text bold */
+      color: white; /* Ensure text is white */
+      transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+  }
+
+  /* Hover effect for the "Log out" link */
+  #logout:hover {
+      background-color: #09632f; /* Darker green on hover */
+      border-radius: 25px; /* More rounded corners on hover */
+  }
+
+  /* Adjust the header for mobile */
+  .header {
+      padding: 15px; /* Reduce padding for smaller screens */
+      font-size: 24px; /* Adjust font size for better readability */
+  }
+
+  /* Adjust the row layout for mobile */
+  .row {
+      flex-direction: column; /* Stack columns vertically */
+  }
+
+  /* Adjust the side and main sections for mobile */
+  /* .side_features, .main {
+      flex: 100%; Full width for side and main sections
+      padding: 15px; Adjust padding for smaller screens
+  } */
+
+    /* Adjust the .side section for mobile */
+    .side {
+      flex: 100%; /* Full width for mobile */
+      padding: 15px; /* Reduce padding for smaller screens */
+      font-size: 16px; /* Adjust font size for better readability */
+      background: linear-gradient(90deg, rgba(207,237,238,1) 17%, rgba(232,252,255,1) 50%); /* Retain gradient background */
+  }
+
+  /* Adjust the .side h2 for mobile */
+  .side h2 {
+      font-size: 28px; /* Reduce font size for better fit */
+      margin-bottom: 15px; /* Add margin for better spacing */
+  }
+
+  /* Adjust the .side h3 and h5 for mobile */
+  .side h3, .side h5 {
+      font-size: 20px; /* Reduce font size for better fit */
+      margin-bottom: 10px; /* Add margin for better spacing */
+  }
+
+  /* Adjust the .side p for mobile */
+  .side p {
+      font-size: 16px; /* Adjust font size for better readability */
+      line-height: 1.5; /* Improve line spacing */
+  }
+
+  /* Adjust the .side_features section for mobile */
+  .side_features {
+      flex: 100%; /* Full width for mobile */
+      padding: 15px; /* Reduce padding for smaller screens */
+      font-size: 16px; /* Adjust font size for better readability */
+      background: linear-gradient(90deg, rgba(207,237,238,1) 17%, rgba(232,252,255,1) 50%); /* Retain gradient background */
+      position: static; /* Reset sticky positioning for mobile */
+      height: auto; /* Allow height to adjust to content */
+      padding-top: 20px; /* Adjust top padding */
+  }
+
+  /* Adjust the .side_features h2 for mobile */
+  .side_features h2 {
+      font-size: 28px; /* Reduce font size for better fit */
+      margin-bottom: 15px; /* Add margin for better spacing */
+  }
+
+  /* Adjust the .side_features h3 and h5 for mobile */
+  .side_features h3, .side_features h5 {
+      font-size: 20px; /* Reduce font size for better fit */
+      margin-bottom: 10px; /* Add margin for better spacing */
+  }
+
+  /* Adjust the .side_features p for mobile */
+  .side_features p {
+      font-size: 16px; /* Adjust font size for better readability */
+      line-height: 1.5; /* Improve line spacing */
+  }
+
+  /* Adjust the .side_features ul for mobile */
+  .side_features ul {
+      padding-left: 20px; /* Add padding for better alignment */
+  }
+
+  /* Adjust the .side_features ul li for mobile */
+  .side_features ul li {
+      margin-bottom: 10px; /* Add margin for better spacing */
+  }
+
+  /* Adjust the content images for mobile */
+  .content-img {
+      padding: 10px; /* Reduce padding for smaller screens */
+      margin-bottom: 15px; /* Adjust margin for better spacing */
+  }
+
+  /* Adjust the footer for mobile */
+  /* .footer {
+      padding: 15px; Reduce padding for smaller screens
+      font-size: 18px; Adjust font size for better readability
+  } */
+      /* Adjust the footer for mobile */
+      .footer {
+        padding: 15px; /* Reduce padding for smaller screens */
+        font-size: 16px; /* Adjust font size for better readability */
+        text-align: center; /* Center-align text */
+    }
+
+    /* Adjust the footer h2 for mobile */
+    .footer h2 {
+        font-size: 20px; /* Reduce font size for better fit */
+        margin-bottom: 10px; /* Add margin for better spacing */
+    }
+
+    /* Adjust the footer hover effect for mobile */
+    .footer:hover {
+        font-size: 16px; /* Ensure font size doesn't change on hover */
+        text-shadow: 2px 2px 5px #ffffff; /* Lighten text shadow for better appearance */
+    }
+}
+
+/* /////////////////////////////////////////////////// */
+/* ABOUT US STYLES */
+
+/* body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+  } */
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* max-width: 540px;
+    height: auto;
+    display:block;
+    max-height: 100%;
+    width: 50%;
+    border-radius: 8px; */
+    /* box-shadow: 5px 5px 5px rgba(226, 226, 226, 0.7); */
+  }
+  
+  .card img {
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px; */
+    /* max-width: 300px; */
+    /* height: auto; */
+    /* display: inline-block; */
+    /* max-height: 300px; */
+    /* display: block; */
+    /* padding-left: 200px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    /* width: 300px; */
+    /* border-radius: 8px; */
+    /* box-shadow: 5px 5px 5px rgba(226, 226, 226, 0.7); */
+    /* border-radius: 48px; */
+    /* transition: 0.5s; */
+
+    /* background-color: rgba(197, 248, 255, 0.552); */
+    /* width: 100%; */
+    max-width: 683px;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* text-align: center; */
+    /* box-shadow: 10px 10px 10px rgba(133,238,255,0.4); */
+    /* border-radius: 38px; */
+    /* transition: box-shadow: 0.15s; */
+    box-shadow: 10px 10px 10px rgba(133,238,255,0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* max-width: 640px; */
+    height: auto;
+    /* display: inline-block; */
+    /* max-height: 100%; */
+    width: 100%;
+    /* border-radius: 8px; */
+    /* box-shadow: 5px 5px 5px rgba(226, 226, 226, 0.7); */
+    border-radius: 1px;
+    transition: 0.5s;
+  }
+
+.card img:hover{
+    box-shadow: 7px 7px 7px rgba(133,238,255,0.4);
+    transform: scale(1.02);
+}
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+  }
+  
+  .about-section {
+    padding: 20px;
+    text-align: center;
+    /* background-color: #6ad2e0; */
+    background: linear-gradient(90deg, rgba(207,237,238,0.7) 0%, rgba(2,165,185,0.7) 50%, rgba(207,237,238,0.7) 100%);
+    color: white;
+    
+    text-shadow: 5px 5px 15px #40566c;
+    transition: 1s;
+  }
+
+  .about-section:hover{
+    background: linear-gradient(90deg, rgba(207,237,238,0.5) 0%, rgba(2,165,185,0.5) 50%, rgba(207,237,238,0.5) 100%);
+  }
+
+  .about-section h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 15px #40566c;
+    transition: 0.4s;
+  }
+
+  .about-section p {
+    text-align: center;
+    color: white;
+    text-shadow: 5px 5px 15px #40566c;
+    transition: 0.4s;
+  }
+
+  .about-section h1:hover{
+    color: #40566c;
+  }
+
+  .about-section p:hover{
+    color: #40566c;
+  }
+  
+  .container-aboutUs {
+    padding: 0 16px;
+  }
+
+  .container-aboutUs h2 {
+    /* padding: 0 16px; */
+    text-align: center;
+  }
+
+  .container-aboutUs p {
+    /* padding: 0 16px; */
+    text-align: center;
+  }
+  
+  .container-aboutUs::after, .row2::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .row2 h2 {
+    color: #40566c;
+  }
+  
+  .title {
+    color: grey;
+  }
+  
+  .button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #03a5ba;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 10px 10px 10px rgba(133,238,255,0.3);
+    border-radius: 15px;
+    transition: 1s;
+  }
+  
+  .button:hover {
+    background-color: #4ecfe2;
+    box-shadow: 7px 7px 7px rgba(133,238,255,0.5);
+    transform: scale(1.03);
+  }
+
+  .button:active {
+    background-color: #7ae8f9;
+    color: #40566c;
+  }
+
+  @media screen and (max-width: 700px) {
+    /* Adjust the about-section for mobile */
+    .about-section {
+        padding: 15px; /* Reduce padding for smaller screens */
+        font-size: 16px; /* Adjust font size for better readability */
+    }
+
+    /* Adjust the about-section h1 for mobile */
+    .about-section h1 {
+        font-size: 28px; /* Reduce font size for better fit */
+        margin-bottom: 15px; /* Add margin for better spacing */
+    }
+
+    /* Adjust the about-section p for mobile */
+    .about-section p {
+        font-size: 16px; /* Adjust font size for better readability */
+        line-height: 1.5; /* Improve line spacing */
+    }
+
+    /* Adjust the column layout for mobile */
+    .column {
+        width: 100%; /* Full width for mobile */
+        margin-bottom: 20px; /* Add margin for better spacing */
+        padding: 0 10px; /* Adjust padding for smaller screens */
+    }
+
+    /* Adjust the card for mobile */
+    .card {
+        margin: 0; /* Remove default margin */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* Lighten shadow for better appearance */
+    }
+
+    /* Adjust the card img for mobile */
+    .card img {
+        max-width: 100%; /* Ensure images fit within the screen */
+        height: auto; /* Maintain aspect ratio */
+        padding: 10px; /* Reduce padding for smaller screens */
+        border-radius: 8px; /* Retain rounded corners */
+    }
+
+    /* Adjust the container-aboutUs for mobile */
+    .container-aboutUs {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    /* Adjust the container-aboutUs h2 for mobile */
+    .container-aboutUs h2 {
+        font-size: 24px; /* Reduce font size for better fit */
+        margin-bottom: 10px; /* Add margin for better spacing */
+    }
+
+    /* Adjust the container-aboutUs p for mobile */
+    .container-aboutUs p {
+        font-size: 16px; /* Adjust font size for better readability */
+        line-height: 1.5; /* Improve line spacing */
+    }
+
+    /* Adjust the button for mobile */
+    .button {
+        padding: 10px; /* Adjust padding for better touch targets */
+        font-size: 16px; /* Adjust font size for better readability */
+    }
+}
+
+  
+/* ////////////////////////////////////////////// */
+/* CONTACT US STYLES */
+
+/* body {
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+    background-color: #03a5ba;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #4ecfe2;
+}
+
+input[type=submit]:active {
+    background-color: #7ae8f9;
+    color: #40566c;
+}
+
+/* Style the container/contact section */
+.container-contactUs {
+  border-radius: 5px;
+  background: linear-gradient(90deg, rgba(207,237,238,0.3) 0%, rgba(2,165,185,0.2) 50%, rgba(207,237,238,0.3) 100%);
+  padding: 10px;
+  color: #40566c;
+}
+
+.container-contactUs p {
+    padding-left: 15%;
+    padding-right: 35%;
+    color: #40566c;
+}
+
+.container-contactUs h2 {
+    color: #40566c;
+}
+
+/* Create two columns that float next to eachother */
+.column-contactUs {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+  color: #40566c;
+}
+
+.column-contactUs img {
+    /* background-color: rgba(197, 248, 255, 0.552); */
+    /* width: 100%; */
+    max-width: 683px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 10px 10px 10px rgba(133,238,255,0.4);
+    /* border-radius: 38px; */
+    transition: 0.5s;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #40566c;
+}
+
+.column-contactUs img:hover {
+    box-shadow: 7px 7px 7px rgba(133,238,255,2.2);
+    transform: scale(1.02);
+}
+
+.column-contactUs #fname {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(219,244,246,0.4458158263305322) 49%, rgba(232,252,255,1) 100%);
+  /* transition: 0.3s; */
+  /* transition: background-color 0.5s; */
+  transition: background-color 1000ms linear;
+}
+
+.column-contactUs #fname:hover {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(232,252,255,1) 100%);
+}
+
+.column-contactUs #lname {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(219,244,246,0.4458158263305322) 49%, rgba(232,252,255,1) 100%);
+  /* transition: 0.3s; */
+  /* transition: background-color 0.5s; */
+  transition: background-color 1000ms linear;
+}
+
+.column-contactUs #lname:hover {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(232,252,255,1) 100%);
+}
+
+.column-contactUs #country {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(219,244,246,0.4458158263305322) 49%, rgba(232,252,255,1) 100%);
+  /* transition: 0.3s; */
+  /* transition: background-color 0.5s; */
+  transition: background-color 1000ms linear;
+}
+
+.column-contactUs #country:hover {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(232,252,255,1) 100%);
+}
+
+.column-contactUs #subject {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(219,244,246,0.4458158263305322) 49%, rgba(232,252,255,1) 100%);
+  /* transition: 0.3s; */
+  /* transition: background-color 0.5s; */
+  transition: background-color 1000ms linear;
+}
+
+.column-contactUs #subject:hover {
+  background: radial-gradient(circle, rgba(207,237,238,1) 0%, rgba(232,252,255,1) 100%);
+}
+
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .column-contactUs, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}

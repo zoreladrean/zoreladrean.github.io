@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity 10</title>
+  <!-- <script src="script.js"></script> -->
+</head>
+<body>
+  <h2>Arithmetic Operators</h2>
+  <form id="sumForm">
+
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1" name="num1"><br><br>
+
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2" name="num2"><br><br>
+    
+    <div class="outerdiv">
+
+      <div class="innerdiv">
+        <div class="buttondiv">
+          <button
+            type="button"
+            onclick="calculateSum();
+          ">
+            Calculate Sum
+          </button>
+        </div>
+        <div>
+          <p id="sum"></p>
+        </div>
+      </div>
+  <!--  -->
+      <div class="innerdiv">
+        <div class="buttondiv">
+          <button
+            type="button"
+            onclick="calculateDifference();
+          ">
+            Calculate Difference
+          </button>
+        </div>
+        <div>
+          <p id="diff"></p>
+        </div>
+      </div>
+  <!--  -->
+      <div class="innerdiv">
+        <div class="innerdiv">
+          <div class="buttondiv">
+            <button
+              type="button"
+              onclick="calculateProduct();
+            ">
+              Calculate Product
+            </button>
+          </div>
+          <div>
+            <p id="prod"></p>
+          </div>
+        </div>
+      </div>
+  <!--  -->
+      <div class="innerdiv">
+        <div class="buttondiv">
+          <button
+          type="button"
+          onclick="calculateQuotient();
+        ">
+          Calculate Quotient
+        </button>
+        </div>
+        <div>
+          <p id="quot"></p>
+        </div>
+      </div>
+  <!--  -->
+      <div class="innerdiv">
+        <div class="buttondiv">
+          <button
+          type="button"
+          onclick="calculateModulo();
+        ">
+          Calculate Modulo
+        </button>
+        </div>
+        <div>
+          <p id="mod"></p>
+        </div>
+      </div>
+    <!--  -->
+      <button
+        type="button"
+        onclick="clearFields()
+      ">
+        Clear
+      </button>
+
+    </div>
+    
+
+  </form>
+
+  <script>
+    function calculateSum() {
+      const num1 = parseFloat (document.getElementById('num1').value);
+      const num2 = parseFloat (document.getElementById('num2').value);
+
+      if ( isNaN (num1) || isNaN (num2)) {
+        document.getElementById('sum').innerHTML = 'Please enter valid numbers.';
+        return;
+      }
+      const sum = num1 + num2;
+      document.getElementById('sum').innerHTML = 'The sum is: ' + sum;
+    }
+
+    function calculateDifference() {
+      const num1 = parseFloat (document.getElementById('num1').value);
+      const num2 = parseFloat (document.getElementById('num2').value);
+
+      if ( isNaN (num1) || isNaN (num2)) {
+        document.getElementById('diff').innerHTML = 'Please enter valid numbers.';
+        return;
+      }
+      const diff = num1 - num2;
+      document.getElementById('diff').innerHTML = 'The difference is: ' + Math.round(diff*100,2)/100;
+    }
+
+    function calculateProduct() {
+      const num1 = parseFloat (document.getElementById('num1').value);
+      const num2 = parseFloat (document.getElementById('num2').value);
+
+      if ( isNaN (num1) || isNaN (num2)) {
+        document.getElementById('prod').innerHTML = 'Please enter valid numbers.';
+        return;
+      }
+      const prod = num1 * num2;
+      document.getElementById('prod').innerHTML = 'The product is: ' + Math.round(prod*100,2)/100;
+    }
+
+    function calculateQuotient() {
+      const num1 = parseFloat (document.getElementById('num1').value);
+      const num2 = parseFloat (document.getElementById('num2').value);
+
+      if ( isNaN (num1) || isNaN (num2)) {
+        document.getElementById('quot').innerHTML = 'Please enter valid numbers.';
+        return;
+      }
+      const quot = num1 / num2;
+      document.getElementById('quot').innerHTML = 'The quotient is: ' + Math.round(quot*100,2)/100;
+    }
+
+    function calculateModulo() {
+      const num1 = parseFloat (document.getElementById('num1').value);
+      const num2 = parseFloat (document.getElementById('num2').value);
+
+      if ( isNaN (num1) || isNaN (num2)) {
+        document.getElementById('mod').innerHTML = 'Please enter valid numbers.';
+        return;
+      }
+      const mod = num1 % num2;
+      document.getElementById('mod').innerHTML = 'The remainder is: ' + Math.round(mod*100,2)/100;
+    }
+
+    function clearFields() {
+      document.getElementById('sum').innerHTML = '';
+      document.getElementById('diff').innerHTML = '';
+      document.getElementById('prod').innerHTML = '';
+      document.getElementById('quot').innerHTML = '';
+      document.getElementById('mod').innerHTML = '';
+    }
+  </script>
+</body>
+</html>
+
+<style>
+
+  .outerdiv {
+    display:grid;
+    grid-template-columns: 1fr;
+    column-gap: 1px;
+    row-gap: 1px;
+    /* border-style: solid; */
+  }
+
+  /* div {
+    border-style: solid;
+  } */
+
+  button {
+    height: 60px;
+    width: 90px;
+    margin: 0;
+    border-radius: 10px;
+    border-width:1px;
+  }
+  button:hover{
+    cursor: pointer;
+  }
+  .innerdiv{
+    display:grid;
+    /* border-style: solid; */
+    grid-template-columns: 90px 150px;
+    column-gap: 1px;
+    row-gap: 1px;
+    /* height:60px;
+    width:90px */
+  }
+  p{
+    height:57px;
+    width:150px;
+    margin:1px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: gray;
+    /* text-align: center;
+    text-wrap: wrap; */
+  }
+</style>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>JavaScript Prompt</h2>
+  <button onclick="myFunction()">
+    Click here!
+  </button>
+  <p id="demo"></p>
+  <script>
+    function myFunction() {
+      let response;
+      let txt;
+      do {
+        
+        let fullName = prompt ( 'Full name:', 'Enter full name here');
+
+        if ( fullName === null || fullName === '' ) {
+          txt = 'The field is required!';
+        }
+        else {
+          txt = 'Hello, ' + fullName + '! How are you today?';
+        }
+        document.getElementById('demo').innerHTML = txt;
+
+        /////////////////////
+
+        response = confirm('Is your name ' +fullName+ ' correct?');
+        if (response)
+          alert('Hello, ' + fullName + '! You can now proceed.');
+        else
+          alert('Type your name again');
+
+      } while ( !response );
+    }
+    
+
+  </script>
+</body>
+</html>

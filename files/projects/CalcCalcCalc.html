@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Calculator</title>
+
+</head>
+  <body>
+    
+    <div id="outerdiv">
+
+      <div id="displaydiv"> <!-- first div -->
+        <p id="display">diz iz a kalkyo</p>
+      </div>
+        
+      <div> <!-- second div -->
+        <button type="button" onclick="click1()">1</button>
+        <button type="button" onclick="click2()">2</button>
+        <button type="button" onclick="click3()">3</button>
+        <button type="button" onclick="clickplus()">+</button>
+      </div>
+  
+      <div> <!-- third div -->
+        <button type="button" onclick="click4()">4</button>
+        <button type="button" onclick="click5()">5</button>
+        <button type="button" onclick="click6()">6</button>
+        <button type="button" onclick="clickminus()">-</button>
+      </div>
+  
+      <div> <!-- fourth div -->
+        <button type="button" onclick="click7()">7</button>
+        <button type="button" onclick="click8()">8</button>
+        <button type="button" onclick="click9()">9</button>
+        <button type="button" onclick="clickmultiply()">*</button>
+      </div>
+  
+      <div> <!-- fifth div -->
+        <button type="button" onclick="clickdot()">.</button>
+        <button type="button" onclick="click0()">0</button>
+        <button type="button" onclick="clickequals()">=</button>
+        <button type="button" onclick="clickdivide()">/</button>
+      </div>
+  
+      <div id="sixthdiv"> <!-- sixth div -->
+        <button type="button" onclick="clickclear()" id="clearbtn">Clear</button>
+        <button type="button" onclick="clickbackspace()" id="backbtn">⌫</button>
+      </div>
+
+    </div>
+    
+  </body>
+
+  <script>
+    let calculate = '';
+
+    function click1() {
+      calculate += '1';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click2() {
+      calculate += '2';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click3() {
+      calculate += '3';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click4() {
+      calculate += '4';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click5() {
+      calculate += '5';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click6() {
+      calculate += '6';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click7() {
+      calculate += '7';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click8() {
+      calculate += '8';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click9() {
+      calculate += '9';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function click0() {
+      calculate += '0';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function clickplus() {
+      calculate += ' + ';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function clickminus() {
+      calculate += ' - ';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function clickmultiply() {
+      calculate += ' * ';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function clickdivide() {
+      calculate += ' / ';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function clickdot() {
+      calculate += '.';
+      document.getElementById('display').innerHTML = calculate;
+    }
+
+    function clickequals() {
+      try {
+        calculate = new Function('return ' + calculate)();
+        document.getElementById('display').innerHTML = calculate;
+      } catch {
+        document.getElementById('display').innerHTML = "Error";
+      }
+    }
+
+    function clickclear() {
+      calculate = '';
+      document.getElementById('display').innerHTML = "Cleared";
+    }
+
+    function clickbackspace() {
+      if (calculate.length > 0) {
+        calculate = calculate.slice(0, -1);
+        document.getElementById('display').innerHTML = calculate;
+      }
+    }
+
+  </script>
+
+</html>
+
+
+<style>
+html, body {
+  touch-action: manipulation;
+}
+div {
+  /* display:table; */
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+#outerdiv{
+  width: 300px;
+  background-color: rgb(186, 206, 226);
+  padding:15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.326);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#displaydiv{
+  border-style:solid;
+  width: 250px;
+  border-radius: 15px;
+  color:rgb(10, 101, 119);
+  background-color: rgb(216, 233, 247);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.326);
+}
+
+#display {
+  padding-left: 10px;
+  text-shadow: 1.5px 1.5px rgba(0, 0, 0, 0.107);
+  
+}
+button {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin: 3px;
+  border: none;
+  background-color:rgb(10, 101, 119);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.326);
+  color:azure;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: rgba(10, 101, 119, 0.695);
+  transform:scale(1.02);
+}
+
+button:active {
+  background-color: rgba(10, 101, 119, 0.896);
+  transform:scale(1.04);
+}
+
+#clearbtn {
+  width:120px;
+  border-radius: 15px;
+}
+
+#backbtn {
+  width:120px;
+  border-radius: 15px;
+}
+</style>
