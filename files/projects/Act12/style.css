@@ -1,0 +1,73 @@
+section {
+    height: 50vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container styling */
+.div {
+    text-align: center;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: #ccc; /* light border color */
+    padding: 20px;
+    margin-top: 5px;
+    background-color: #f9f9f9; /* soft background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect */
+.div:hover {
+    transform: scale(1.01);
+}
+
+#inputNumber {
+    width: 50px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+}
+
+button {
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    background-color: #4CAF50; /* green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Display output styling */
+#print {
+    font-size: 15px;
+    font-family: monospace;
+    line-height: 30px;
+    padding: 10px;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px dashed #aaa;
+    min-height: 50px;
+}
+
+/* Individual letters */
+.letter {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+}
