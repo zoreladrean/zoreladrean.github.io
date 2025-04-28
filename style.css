@@ -1023,7 +1023,7 @@ button.btn:hover {
 
 @media (max-width: 768px) {
   .contact-card {
-    padding: 2rem 2rem;
+    padding: 2rem 1rem;
   }
   .contact-info {
     flex-direction: column;
@@ -1068,19 +1068,67 @@ button.btn:hover {
       display: none;
   }
   
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1rem; }
+  p.intro { font-size: 15px; }
   
   .currently-learning ul {
       columns: 1;
   }
   
+  .skills-grid li {
+    font-size: 11px;
+  }
+
+  .skills-grid h3 {
+    font-size: 12px;
+  }
+
   .skills-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
   }
   
+  /* .project-card {
+      margin-bottom: 1rem;
+  } */
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two-column layout for mobile */
+    gap: 1rem; /* Reduce spacing between items for compactness */
+    padding: 0; /* Add padding to the grid */
+    font-size: 12px;
+  }
+
+  .projects-grid span {
+    font-size: 0.55rem;
+    padding: 0.4rem;
+    border-radius: 50px;
+  }
+
+  .project-image {
+    height: 200px;
+  }
+
+  .project-info {
+    padding: 5px;
+  }
+
   .project-card {
-      margin-bottom: 1.5rem;
+    margin: 0;
+  }
+
+  .project-card a {
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 0.7rem; /* Smaller font size */
+    border-radius: 50px; /* Slightly smaller corners */
+  }
+
+  .project-image img {
+    width: 100%; /* Lower the height for mobile view */
+    margin: 0;
+    padding: 0;
   }
   
   .education,
@@ -1088,37 +1136,42 @@ button.btn:hover {
   .currently-learning,
   .skills-card {
       padding: 1.2rem;
+      font-size: 13px;
   }
   
   .currently-learning li {
       padding: 0.4rem 0.8rem;
   }
 
+  .card {
+    border-radius: 8px; /* Softer corners */
+  }
+
   .contact-card {
-      padding: 2rem 1rem;
+    padding: 1rem;
   }
   
   .form-group i {
       top: 1.3rem;
   }
-}
 
-/* Add to media query */
-.menu-toggle {
-  display: block;
-  color: var(--light);
-  font-size: 1.5rem;
-}
+  .menu-toggle {
+    display: block;
+    color: var(--light);
+    font-size: 1.5rem;
+  }
 
-.nav-links.active {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: var(--primary);
-  padding: 1rem;
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 33, 71, 0.853);;
+    padding: 1rem;
+  }
+
 }
 
 /* ===== FOOTER ===== */
@@ -1249,7 +1302,9 @@ button.btn:hover {
   }
   
   .back-to-top {
-    bottom: 1rem;
-    right: 1rem;
+    width: 30px;
+    height: 30px;
+    bottom: 0.1rem;
+    right: 0.1rem;
   }
 }
