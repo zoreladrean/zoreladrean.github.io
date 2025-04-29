@@ -770,6 +770,9 @@ h3 {
 .currently-learning.animate ul li:nth-child(5) {
   animation-delay: 1.1s;
 }
+.currently-learning.animate ul li:nth-child(6) {
+  animation-delay: 1.3s;
+}
 
 /* Optionally animate the header too */
 /* .currently-learning.animate h3 {
